@@ -12,10 +12,10 @@
 # You can add or remove any company name in the list companies[] and get desired output.
 
 import httplib2
-import pdfcrowd
 from bs4 import BeautifulSoup, SoupStrainer
 import pdfkit
 import sys
+from PyPDF2 import PdfFileMerger, PdfFileReader
 
 #Preparing the link for each company
 tagLink = 'https://www.geeksforgeeks.org/tag/'
@@ -127,7 +127,6 @@ for z in range(len(companies)):
     # print(pdfs)
 
     # Merging all the PDFs of a particular company into one Final PDF.
-    from PyPDF2 import PdfFileMerger, PdfFileReader
     merger = PdfFileMerger()
     for file_name in pdfs:
         with open(file_name, 'rb') as f:
